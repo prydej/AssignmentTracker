@@ -16,13 +16,10 @@ def add_assignment(ass_list, nextid):
     ass_priority = input('Priority: ')
     ass_course = input('Class name: ')
 
-    # Assign ID Number
-    ass_id = nextid
-    nextid += 1
-
     # Create dict to write to file
     ass_dict = {'name': ass_name, 'date': ass_date, 'time': ass_time, 'priority': ass_priority, 'course': ass_course,
-                'ID': ass_id, 'complete': 0.0}
+                'ID': nextid, 'complete': 0.0}
+    nextid += 1  # increment id by 1
 
     # Concatenate current dict with previous assignments
     ass_list.append(ass_dict)
@@ -37,4 +34,4 @@ def add_assignment(ass_list, nextid):
 
     print(ass_list)
 
-    return None
+    return nextid

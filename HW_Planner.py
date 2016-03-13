@@ -43,7 +43,7 @@ if __name__ == '__main__':
 
         # Call appropriate function
         if choice == 'a':
-            add_assignment(ass_string, nextid)
+            nextid = add_assignment(ass_string, nextid)
 
         elif choice == 'u':
             print('You chose u')
