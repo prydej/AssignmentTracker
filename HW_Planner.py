@@ -45,7 +45,7 @@ if __name__ == '__main__':
         choice = input()
         choice = choice.casefold()
 
-    # Call appropriate function
+        # Call appropriate function
         if choice == 'a':
             add_assignment(all_asses, nextid)
 
