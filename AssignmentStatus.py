@@ -8,6 +8,7 @@ purpose: give information on current assignments
 """
 import time
 import json
+from Colors import *
 
 
 def time_diff(time2):
@@ -133,12 +134,24 @@ def status():
         priority = importances[i]
         course = courses[i]
         pctcomplete = pctcompletes[i]
-        print('\n\n')
-        print(name, '\n')
-        print(course, '\n')
-        print('Priority ', priority, '\n')
-        print('Due ', due, '\n')
-        print('Time to complete: ', t2complete, '\n')
-        print(pctcomplete, '% Complete')
+        if sprios[i] > 1:
+            color = Colors.Red
+        elif sprios[i] > .5:
+            color = Colors.Yellow
+        else:
+            color = Colors.Green
+
+        if pctcomplete != 100:
+            print('\n')
+            print(color + name)
+            print(color + course)
+            print(color + 'Priority ', priority)
+            print(color + 'Due ', due)
+            print(color + 'Time to complete: ', t2complete)
+            print(pctcomplete, '% Complete' + color)
+
+    input()
+    color = Colors.Default
+    print('' + color)
 
     return None
