@@ -6,6 +6,7 @@
 
 from AddAssignment import *
 from AssignmentStatus import *
+from ModifyAssignment import *
 import os
 
 # Get last sequential ID number
@@ -48,7 +49,7 @@ if __name__ == '__main__':
             nextid = add_assignment(ass_list, nextid)
 
         elif choice == 'u':
-            print('You chose u')
+            modify_assignment()
 
         elif choice == 'd':
             status()
