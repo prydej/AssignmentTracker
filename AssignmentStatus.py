@@ -74,6 +74,26 @@ def status():
     asshats = asshole.read()
     asshats = json.loads(asshats)
     print(asshats)
+    
+    # Create lists for data
+    names = []
+    dues = []
+    t2completes = []
+    importances = []
+    courses = []
+    pctcompletes = []
+    IDs = []
+    
+    # Sort the data
+    for i in range(len(asshats) - 1):
+        assdict = (asshats[i + 1])
+        names.append(assdict['name'])
+        dues.append(assdict['date'])
+        t2completes.append(assdict['time'])
+        importances.append(assdict['priority'])
+        courses.append(assdict['course'])
+        pctcompletes.append(assdict['complete'])
+        IDs.append(assdict['ID'])
 
     # Calculate priorities
     priorities = []
