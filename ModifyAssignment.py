@@ -23,6 +23,7 @@ def modify_assignment():
         change_assignment = 0
 
         while change_assignment == 0:
+            print()
             for seal in assignment_list[1:len(assignment_list)]:
                 print(" - ", seal["name"])
             change_name = input('\nWhich assignment do you want to modify? ')
@@ -42,41 +43,47 @@ def modify_assignment():
         while change_key == 0:
             # Ask user for which information to change
             print(' n. Name')
-            print(' d. Due Date (DTG)')
+            print(' d. Due Date')
             print(' t. Time Required')
             print(' p. Priority')
             print(' c. Course')
-            print(' o. Progress (Percentage)')
+            print(' o. Progress')
             change_key = input('What do you want to change? ').casefold()
 
             # Assign a key
             if change_key == 'n':
                 change_key = 'name'
+                field = 'Name'
             elif change_key == 'd':
                 change_key = 'date'
+                field = 'Due Date (DTG)'
             elif change_key == 't':
                 change_key = 'time'
+                field = 'Time Required (hours)'
             elif change_key == 'p':
                 change_key = 'priority'
+                field = 'Priority (1 - 10)'
             elif change_key == 'c':
                 change_key = 'course'
+                field = 'Course'
             elif change_key == 'o':
                 change_key = 'complete'
+                field = 'Progress (percentage)'
 
             # Check change key
             assignment_keys = ['name', 'date', 'time', 'priority', 'course', 'complete']
             fox = 0
             match = 0
-            while fox <= len(assignment_keys) and change_key != assignment_keys[fox]:
-                fox += 1
+            while fox <= len(assignment_keys):
                 if change_key == assignment_keys[fox]:
                     match = 1
+                fox += 1
             if match == 0:
                 change_key = 0
                 print("You're an idiot.")
                 input("")
 
-        print("To what do you want to change the ", change_key, end="")
+        print("To what do you want to change the", field, end="")
         change_val = input("? ")
 
         # Change information
@@ -86,7 +93,6 @@ def modify_assignment():
         with open('Assignment_log.json', 'w', 1) as assignments:
             json.dump(assignment_list, assignments)
 
-        print("\n", change_key, "successfully changed to ", change_val, "!")
-        change_key = input("Type Y to continue or X to exit to the main menu. ").casefold()
+        change_key = input("\nType Y to continue or X to exit to the main menu. ").casefold()
 
     return None

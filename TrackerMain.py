@@ -32,11 +32,10 @@ if __name__ == '__main__':
     while choice != 'x':
 
         # Print menu
-        print('What do you want to do?')
+        print('\nWhat do you want to do?')
         print('a. Add assignment')
         print('u. Update assignment')
         print('d. Display status')
-        print('c. Mark assignment as complete')
         print('x. Exit the program')
 
         # Take input
@@ -52,9 +51,6 @@ if __name__ == '__main__':
 
         elif choice == 'd':
             status()
-
-        elif choice == 'c':
-            print('You chose c')
 
         elif choice != 'x':
             print("You're an idiot.")

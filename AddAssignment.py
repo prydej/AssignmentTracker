@@ -10,7 +10,7 @@ import json
 
 def add_assignment(assignment_list, nextid):
     # Ask user for information about new ass
-    assignment_name = input('Name of assignment: ')
+    assignment_name = input('\nName of assignment: ')
     assignment_date = input('Due date: (DTG) ')
     assignment_time = input('Time required to complete: ')
     assignment_priority = input('Priority: ')
