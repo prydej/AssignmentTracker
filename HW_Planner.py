@@ -9,21 +9,23 @@ import os
 import time
 
 # Get last sequential ID number
-with open('Asshole.json', 'w+', 1) as asshole:
+asshole = open('Asshole.json', 'w+', 1)
 
-    # If new file is empty
-    if os.stat("Asshole.json").st_size:
-        all_asses = json.loads(asshole.read())
-    else:
-        asshole.write("[]")
-        all_asses = []
+# If new file is empty
+if os.stat("Asshole.json").st_size:
+    all_asses = json.loads(asshole.read())
+else:
+    asshole.write("[]")
+    all_asses = []
 
-    # If new file, add array with only nextid
-    if "nextid" in all_asses:
-        nextid = all_asses[0]["nextid"]
-    else:
-        asshole.write('[{"nextid": 0}]')
-        nextid = 0
+# If new file, add array with only nextid
+if "nextid" in all_asses:
+    nextid = all_asses[0]["nextid"]
+else:
+    asshole.write('[{"nextid": 0}]')
+    nextid = 0
+
+asshole.close()
 
 if __name__ == '__main__':
 

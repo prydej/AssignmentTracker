@@ -25,18 +25,21 @@ def add_assignment(all_asses, nextid):
                 'ID': ass_id}
 
     # Create json string from object
-    new_ass_string = json.dumps(ass_dict, sort_keys=True, indent=4, separators=(',', ': '))
+    new_ass_string = json.dumps(ass_dict, indent=4, separators=(',', ': '))
     print(new_ass_string)
 
     # Concatenate current dict with previous assignments
     all_asses.append(ass_dict)
 
     # Update nextid in new assignment
-    print(type(ass_dict))
+    # print(type(ass_dict))
     all_asses[0] = {"nextid": 0}
 
     # Write object to file
     with open('Asshole.json', 'w', 1) as asshole:
-        json.dump(new_ass_string, asshole)
+        json.dump(all_asses, asshole)
+
+    print(all_asses)
+
 
     return None
