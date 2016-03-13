@@ -37,22 +37,18 @@ def time_diff(time2):
     zone2 = alphabet.index(zone2s)
     if zone2 < alphabet.index('n'):
         convert = zone2 + 1
-        print(convert)
 
     elif zone2s == 'z':
         convert = 0
-        print(convert)
 
     else:
         convert = alphabet.index('n') - zone2 - 1
         if dst:
             convert += 1
-        print(convert)
 
     hour2 = int(time2[2:4])
     hour2 += convert
 
-    hdef = True
     ddef = True
     mdef = True
     ydef = True
@@ -148,10 +144,9 @@ def time_diff(time2):
 # Display status
 def status():
     # Read and parse json file
-    asshole = open('Asshole.json', 'r', 1)
-    asshats = asshole.read()
-    asshats = json.loads(asshats)
-    print(asshats)
+    assignment_log = open('Assignment_log.json', 'r', 1)
+    assignment_data = assignment_log.read()
+    assignment_data = json.loads(assignment_data)
     
     # Create lists for data
     names = []
@@ -163,15 +158,15 @@ def status():
     IDs = []
     
     # Sort the data
-    for i in range(len(asshats) - 1):
-        assdict = (asshats[i + 1])
-        names.append(assdict['name'])
-        dues.append(assdict['date'])
-        t2completes.append(float(assdict['time']))
-        importances.append(int(assdict['priority']))
-        courses.append(assdict['course'])
-        pctcompletes.append(float(assdict['complete']))
-        IDs.append(assdict['ID'])
+    for i in range(len(assignment_data) - 1):
+        assignment_dict = (assignment_data[i + 1])
+        names.append(assignment_dict['name'])
+        dues.append(assignment_dict['date'])
+        t2completes.append(float(assignment_dict['time']))
+        importances.append(int(assignment_dict['priority']))
+        courses.append(assignment_dict['course'])
+        pctcompletes.append(float(assignment_dict['complete']))
+        IDs.append(assignment_dict['ID'])
 
     # Calculate priorities
     priorities = []
@@ -181,12 +176,12 @@ def status():
         priorities.append(priority)
 
     # Sort priorities and do the same to IDs
-    prios = priorities
+    prios = priorities.copy()
     ids = IDs.copy()
     sprios = []
     sids = []
     while len(prios) > 0:
-        maxprio = 0
+        maxprio = prios[0]
         for i in range(len(prios)):
             if prios[i] >= maxprio:
                 maxprio = prios[i]

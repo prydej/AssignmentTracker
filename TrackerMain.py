@@ -11,21 +11,20 @@ from flask import Flask
 import os
 
 # Get last sequential ID number
-asshole = open("Asshole.json", "a+", 1)
-asshole.seek(0, 0)
-asses = asshole.read()
+assignment_log = open("Assignment_log.json", "a+", 1)
+assignment_log.seek(0, 0)
+assignment_data = assignment_log.read()
 
 # If file is empty
-if os.stat("Asshole.json").st_size:
-    ass_list = json.loads(asses)
-    nextid = ass_list[0]["nextid"]
-    print("Next ID: ", nextid)
+if os.stat("Assignment_log.json").st_size:
+    assignment_list = json.loads(assignment_data)
+    nextid = assignment_list[0]["nextid"]
 else:
-    asshole.write('[{"nextid": 0}]')
-    ass_list = [{"nextid": 0}]
+    assignment_log.write('[{"nextid": 0}]')
+    assignment_list = [{"nextid": 0}]
     nextid = 0
 
-asshole.close()
+assignment_log.close()
 
 if __name__ == '__main__':
 
@@ -34,11 +33,10 @@ if __name__ == '__main__':
     while choice != 'x':
 
         # Print menu
-        print('What do you want to do?')
+        print('\nWhat do you want to do?')
         print('a. Add assignment')
         print('u. Update assignment')
         print('d. Display status')
-        print('c. Mark assignment as complete')
         print('x. Exit the program')
 
         # Take input
@@ -47,16 +45,13 @@ if __name__ == '__main__':
 
         # Call appropriate function
         if choice == 'a':
-            nextid = add_assignment(ass_list, nextid)
+            nextid = add_assignment(assignment_list, nextid)
 
         elif choice == 'u':
             modify_assignment()
 
         elif choice == 'd':
             status()
-
-        elif choice == 'c':
-            print('You chose c')
 
         elif choice != 'x':
             print("You're an idiot.")
