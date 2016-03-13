@@ -1,9 +1,9 @@
 """
-Author: Julian Pryde
-File: AddAssignment.py
-Name: Add Assignment
-Project: Homework Planner
-Purpose: Write new assignment to file for Assignment Tracker
+author: Julian Pryde
+file: AddAssignment.py
+name: Add Assignment
+project: Homework Planner
+purpose: Write new assignment to a file in json format
 """
 import json
 
@@ -40,6 +40,5 @@ def add_assignment(all_asses, nextid):
         json.dump(all_asses, asshole)
 
     print(all_asses)
-
 
     return None
