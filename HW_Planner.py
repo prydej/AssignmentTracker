@@ -15,11 +15,12 @@ asses = asshole.read()
 
 # If file is empty
 if os.stat("Asshole.json").st_size:
-    ass_string = json.loads(asses)
-    nextid = ass_string[0]["nextid"]
+    ass_list = json.loads(asses)
+    nextid = ass_list[0]["nextid"]
+    print("Next ID: ", nextid)
 else:
     asshole.write('[{"nextid": 0}]')
-    ass_string = []
+    ass_list = [{"nextid": 0}]
     nextid = 0
 
 asshole.close()
@@ -44,7 +45,7 @@ if __name__ == '__main__':
 
         # Call appropriate function
         if choice == 'a':
-            nextid = add_assignment(ass_string, nextid)
+            nextid = add_assignment(ass_list, nextid)
 
         elif choice == 'u':
             print('You chose u')

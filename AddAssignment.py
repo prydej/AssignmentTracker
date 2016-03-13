@@ -26,7 +26,7 @@ def add_assignment(ass_list, nextid):
 
     # Update nextid in new assignment
     # print(type(ass_dict))
-    ass_list = [{"nextid": 0}] + ass_list
+    ass_list[0]["nextid"] = nextid
 
     # Write object to file
     with open('Asshole.json', 'w', 1) as asshole:
