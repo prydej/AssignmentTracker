@@ -222,7 +222,7 @@ def status():
             print(color + 'Time to complete: ', t2complete)
             print(pctcomplete, '% Complete' + color)
 
-    input()
+    input('\nPress ENTER to continue')
     color = Colors.Default
     print('' + color)
 

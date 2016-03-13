@@ -93,6 +93,6 @@ def modify_assignment():
         with open('Assignment_log.json', 'w', 1) as assignments:
             json.dump(assignment_list, assignments)
 
-        change_key = input("\nType Y to continue or X to exit to the main menu. ").casefold()
+        change_key = input("\nType C to continue or X to exit to the main menu. ").casefold()
 
     return None
