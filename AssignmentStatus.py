@@ -99,7 +99,7 @@ def status():
     priorities = []
     for i in range(len(IDs)):
         tleft = time_diff(dues[i])
-        priority = importances[i] * t2completes[i] * (1 - (pctcompletes(i) / 100)) / tleft
+        priority = importances[i] * t2completes[i] * (1 - (pctcompletes[i] / 100)) / tleft
         priorities.append(priority)
 
     # Sort priorities and do the same to IDs
@@ -133,7 +133,12 @@ def status():
         priority = importances[i]
         course = courses[i]
         pctcomplete = pctcompletes[i]
-        print('\n\n', name, '\n', course, '\nPriority ', priority, '\nDue ', due, '\nTime to complete: ', t2complete,
-              '\n', pctcomplete, ' % Complete')
+        print('\n\n')
+        print(name, '\n')
+        print(course, '\n')
+        print('Priority ', priority, '\n')
+        print('Due ', due, '\n')
+        print('Time to complete: ', t2complete, '\n')
+        print(pctcomplete, '% Complete')
 
     return None
