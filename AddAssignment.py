@@ -8,7 +8,7 @@ purpose: Write new assignment to a file in json format
 import json
 
 
-def add_assignment(all_asses, nextid):
+def add_assignment(ass_list, nextid):
     # Ask user for information about new ass
     ass_name = input('Name of assignment: ')
     ass_date = input('Due date: ')
@@ -22,23 +22,19 @@ def add_assignment(all_asses, nextid):
 
     # Create dict to write to file
     ass_dict = {'name': ass_name, 'date': ass_date, 'time': ass_time, 'priority': ass_priority, 'course': ass_course,
-                'ID': ass_id}
-
-    # Create json string from object
-    new_ass_string = json.dumps(ass_dict, indent=4, separators=(',', ': '))
-    print(new_ass_string)
+                'ID': ass_id, 'complete': 0.0}
 
     # Concatenate current dict with previous assignments
-    all_asses.append(ass_dict)
+    ass_list.append(ass_dict)
 
     # Update nextid in new assignment
     # print(type(ass_dict))
-    all_asses = [{"nextid": 0}] + all_asses
+    ass_list = [{"nextid": 0}] + ass_list
 
     # Write object to file
     with open('Asshole.json', 'w', 1) as asshole:
-        json.dump(all_asses, asshole)
+        json.dump(ass_list, asshole)
 
-    print(all_asses)
+    print(ass_list)
 
     return None
