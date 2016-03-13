@@ -133,12 +133,15 @@ def status():
         priority = importances[i]
         course = courses[i]
         pctcomplete = pctcompletes[i]
-        print('\n\n')
-        print(name, '\n')
-        print(course, '\n')
-        print('Priority ', priority, '\n')
-        print('Due ', due, '\n')
-        print('Time to complete: ', t2complete, '\n')
-        print(pctcomplete, '% Complete')
+        if pctcomplete != 100:
+            print('\n')
+            print(name)
+            print(course)
+            print('Priority ', priority)
+            print('Due ', due)
+            print('Time to complete: ', t2complete)
+            print(pctcomplete, '% Complete')
+
+    input()
 
     return None
