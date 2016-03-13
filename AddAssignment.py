@@ -33,7 +33,7 @@ def add_assignment(all_asses, nextid):
 
     # Update nextid in new assignment
     print(type(ass_dict))
-    ass_dict[0] = {"nextid": 0}
+    all_asses[0] = {"nextid": 0}
 
     # Write object to file
     with open('Asshole.json', 'w', 1) as asshole:
