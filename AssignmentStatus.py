@@ -7,6 +7,7 @@ purpose: give information on current assignments
 
 """
 import time
+import json
 
 
 def time_diff(time2):
@@ -69,6 +70,10 @@ def time_diff(time2):
 # Display status
 def status():
     # Read and parse json file
+    asshole = open('Asshole.json', 'r', 1)
+    asshats = asshole.read()
+    asshats = json.loads(asshats)
+    print(asshats)
 
     # Calculate priorities
     priorities = []
