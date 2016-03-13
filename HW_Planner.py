@@ -9,7 +9,8 @@ from AssignmentStatus import *
 import os
 
 # Get last sequential ID number
-asshole = open("Asshole.json", "r+", 1)
+asshole = open("Asshole.json", "a+", 1)
+asshole.seek(0, 0)
 asses = asshole.read()
 
 # If file is empty
