@@ -9,20 +9,16 @@ from AssignmentStatus import *
 import os
 
 # Get last sequential ID number
-asshole = open('Asshole.json', 'w+', 1)
+asshole = open("Asshole.json", "r+", 1)
+asses = asshole.read()
 
-# If new file is empty
+# If file is empty
 if os.stat("Asshole.json").st_size:
-    all_asses = json.loads(asshole.read())
-else:
-    asshole.write("[]")
-    all_asses = []
-
-# If new file, add array with only nextid
-if "nextid" in all_asses:
-    nextid = all_asses[0]["nextid"]
+    ass_string = json.loads(asses)
+    nextid = ass_string[0]["nextid"]
 else:
     asshole.write('[{"nextid": 0}]')
+    ass_string = []
     nextid = 0
 
 asshole.close()
@@ -47,7 +43,7 @@ if __name__ == '__main__':
 
         # Call appropriate function
         if choice == 'a':
-            add_assignment(all_asses, nextid)
+            add_assignment(ass_string, nextid)
 
         elif choice == 'u':
             print('You chose u')
