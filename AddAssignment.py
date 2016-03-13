@@ -9,7 +9,13 @@ import json
 
 
 def add_assignment(assignment_list, nextid):
-    # Ask user for information about new ass
+    # Explain what DTG is
+    print('DTG format stands for "Date-Time-Group".')
+    print("It's used by the military to write dates and times in a compact manner.")
+    print('The format is DDTTTTZMMMYY. Z is the letter time zone designation (Eastern is "R")')
+    print('For example: the due date of this program is 131300RMAR16')
+
+    # Ask user for information about new assignment
     assignment_name = input('\nName of assignment: ')
     assignment_date = input('Due date: (DTG) ')
     assignment_time = input('Time required to complete: ')

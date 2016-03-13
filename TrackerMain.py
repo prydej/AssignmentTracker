@@ -7,7 +7,6 @@
 from AddAssignment import *
 from AssignmentStatus import *
 from ModifyAssignment import *
-from flask import Flask
 import os
 
 # Get last sequential ID number

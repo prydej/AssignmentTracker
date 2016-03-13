@@ -206,9 +206,9 @@ def status():
         priority = importances[i]
         course = courses[i]
         pctcomplete = pctcompletes[i]
-        if sprios[i] > 1:
+        if sprios[i] < 1:
             color = Colors.Red
-        elif sprios[i] > .5:
+        elif sprios[i] < .5:
             color = Colors.Yellow
         else:
             color = Colors.Green
