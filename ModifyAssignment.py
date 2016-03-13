@@ -74,7 +74,7 @@ def modify_assignment():
             assignment_keys = ['name', 'date', 'time', 'priority', 'course', 'complete']
             fox = 0
             match = 0
-            while fox <= len(assignment_keys):
+            while fox <= len(assignment_keys) and match == 0:
                 if change_key == assignment_keys[fox]:
                     match = 1
                 fox += 1
