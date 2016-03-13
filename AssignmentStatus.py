@@ -49,7 +49,7 @@ def time_diff(time2):
     # Determine hour difference
     hour1 = time1[2:4]
     hour1 = int(hour1)
-    hour2 = time[2:4]
+    hour2 = time2[2:4]
     hour2 = int(hour2)
     hdiff = hour2 - hour1
     thdiff = hdiff + tddiff * 24
@@ -89,10 +89,10 @@ def status():
         assdict = (asshats[i + 1])
         names.append(assdict['name'])
         dues.append(assdict['date'])
-        t2completes.append(assdict['time'])
-        importances.append(assdict['priority'])
+        t2completes.append(float(assdict['time']))
+        importances.append(int(assdict['priority']))
         courses.append(assdict['course'])
-        pctcompletes.append(assdict['complete'])
+        pctcompletes.append(float(assdict['complete']))
         IDs.append(assdict['ID'])
 
     # Calculate priorities
@@ -104,7 +104,7 @@ def status():
 
     # Sort priorities and do the same to IDs
     prios = priorities
-    ids = IDs
+    ids = IDs.copy()
     sprios = []
     sids = []
     while len(prios) > 0:
